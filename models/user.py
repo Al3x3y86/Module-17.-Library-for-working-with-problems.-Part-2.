@@ -7,7 +7,7 @@ class User(Base):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, nullable=False)
+    username = Column(String, nullable=True)
     firstname = Column(String, nullable=True)
     lastname = Column(String, nullable=True)
     age = Column(Integer, nullable=True)
