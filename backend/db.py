@@ -1,13 +1,13 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
 # Создание движка для базы данных SQLite
-DATABASE_URL = 'sqlite:///taskmanager.db'
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+engine = create_engine('sqlite:///taskmanager.db', echo=True)
 
 # Создание локальной сессии
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SessionLocal = sessionmaker(bind=engine)
+
 
 # Базовый класс для других моделей
-Base = declarative_base()
+class Base(DeclarativeBase):
+    pass
